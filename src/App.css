@@ -1,0 +1,128 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+#header {
+  position: fixed;
+  background: white;
+  display: flex;
+  height: 4.5vw;
+  top: 0vw; 
+  box-shadow: 0 5px 11px 0 rgb(29 0 62 / 7%);
+  align-items: center;
+  max-width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 15px;
+  color: #7f88a0;
+  z-index: 99;
+}
+
+#background{
+  overflow: hidden;
+  height: 45vw;
+  background: #5022ed;
+  position: fixed;
+  width: 102vw;
+  top: -110px;
+  right: -15vw;
+  border-radius: 53px;
+  transform: rotate(-4deg);
+  z-index: -100;
+}
+
+#converter-card{
+  position: fixed;
+  width: 465px;
+  height: 528px;
+  border-radius: 30px 30px 30px 30px;
+  z-index: 1;
+  bottom: 13vw;         
+  left: 60vw;
+}
+
+#converter-card__form{
+  padding-right: 15px;
+  padding-left: 20px;
+}
+
+#h1box {
+  position: relative;
+  z-index: 100;
+  inline-size: 80vw;
+  max-width: 35%;
+  overflow-wrap: break-word;
+  bottom: -5vw;         
+  left: 20vw;
+}
+
+h1 {
+  font-size: 4em;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.1em
+}
+
+h1 b {
+  color: #16dfb5;
+  font-weight: 600;
+}
+
+#buy-button {
+  display: inline-block;
+  width: 415px;
+  height: 48px;
+  left: 2px;
+  top: 90px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  border: 0;
+  outline: 0;
+  transition: box-shadow .2s ease;
+  padding: 0 15px;
+  color: transparent;
+  font-size: 1em;
+  font-weight: 500;
+  background: #16DFB5;
+  padding-left: 3.3rem;
+  border-radius: 4px 50px 50px 50px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+#buy-button:disabled{
+  background-color: gray;
+}
+
+.input-row{
+  margin-bottom: 25px;
+  width: 412px;
+  height: 48px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+#input-fields{
+  margin-top: 80px;
+  left: 2px;
+}
+
+#payment-select{
+  font-family: Roboto, sans-serif;
+  width: 412px;
+  height: 55px;
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+#payment-label{
+  display: block;
+  padding-bottom: 50px;
+}

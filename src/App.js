@@ -8,8 +8,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route index element={<HomePage/>} />
+        <Route index element={<HomePage />} />
       </Routes>
+    
     </BrowserRouter>
   );
 }

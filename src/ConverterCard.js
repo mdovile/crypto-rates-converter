@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { InputRow } from './InputRow';
-import { FormControl, Select, MenuItem, Button, Card } from '@mui/material';
+import { Button, Card } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = 'https://api.coingate.com/v2';
@@ -61,7 +61,7 @@ export const ConverterCard = () => {
     setAmount(val);
     setAmountEnteredInPay(true);
   }
-  
+
   function handleBuyAmountChange(val) {
     setAmount(val);
     setAmountEnteredInPay(false);
@@ -107,9 +107,9 @@ export const ConverterCard = () => {
         <Button
           id="buy-button"
           type="submit"
-          disabled={!paymentMethod || buy == 0 || pay == 0}
+          disabled={!paymentMethod || buy === 0 || pay === 0}
         >
-          Buy {buyCurrency}
+        Buy {buyCurrency}
         </Button>
       </form>
     </Card>

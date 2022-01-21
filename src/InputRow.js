@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Select, MenuItem, TextField } from '@mui/material';
-import unknownLogo from './icons-unknown.png';
+import unknownLogo from './icons/icons-unknown.png';
 
 export const InputRow = ({
   selectedCurrency,
@@ -26,15 +26,17 @@ export const InputRow = ({
       .then((imageBlob) => {
         const imageObjectURL = URL.createObjectURL(imageBlob);
         setImage(imageObjectURL);
+      }).catch((error) => {
+        setImage(unknownLogo);
       });
   }, [selectedCurrency]);
 
   return (
     <div className="input-row">
-      <label>{label}</label>
+      <label className="input-label">{label}</label>
       <TextField
         variant="standard"
-        inputProps={{ min: 0, style: { textAlign: 'center' } }}
+        inputProps={{ min: 0, max: 1000000, style: { textAlign: 'center', fontSize: 14 }}}
         type="number"
         min="0"
         className="inputNumber"

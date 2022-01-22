@@ -5,6 +5,7 @@ body {
 #header {
   position: fixed;
   width: 100%;
+  left: 0px;
   background: white;
   display: flex;
   height: 4.5vw;
@@ -21,7 +22,7 @@ body {
 
 #background{
   overflow: hidden;
-  height: 45vw;
+  height: 46vw;
   background: #5022ed;
   position: fixed;
   width: 102vw;
@@ -200,4 +201,106 @@ h1 b {
   height: 33px;
   width: 100px;
   text-align: right;
+}
+
+#decoration-card{
+  position: fixed;
+  background: #E9F6FF;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transform: rotate(-5.53deg);
+  width: 320px;
+  height: 380px;
+  left: 62%;
+  top: 15%;
+}
+
+#cards-together{
+  position: absolute;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  body{
+    overflow: scroll;
+  }
+  #background{
+    position: fixed;
+    overflow-y: scroll;
+    max-width: 600px;
+    overflow-x: hidden;
+    height: 105%;
+    left: -100px;
+    width: 135%;
+  }
+
+  #converter-card{
+    position: absolute;
+    top: 58vw;         
+    left: 8vw;
+    z-index: 1000;
+  }
+
+  #h1box {
+    position: absolute;
+    z-index: 100;
+    top: 18vw;         
+    left: 8vw;
+    inline-size: 100vw;
+    max-width: 905%;
+  }
+
+  h1{
+    font-size: 29px;
+    line-height: 31px;
+  }
+
+  #box-for-text{
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    left: 8vw;
+    top: 620px;
+    max-width: 80%;
+  }
+
+  p{
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  #box-for-link{
+   display: none;
+  }
+
+  #header {
+    position: fixed;
+    height: 50px;   
+  }
+  
+  #input-fields{
+    margin-top: 22px;
+    left: 2px;
+  }
+
+  #buy-button {
+    top: 92px;
+  }
+
+  #main{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  #decoration-card{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #background{
+    height: 115%;
+  }
 }

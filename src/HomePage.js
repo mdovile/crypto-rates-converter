@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
   return (
-    <div>
+    <div id="main">
       <div id="background" />
       <div id="h1box">
         <h1>

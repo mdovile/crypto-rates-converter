@@ -22,11 +22,15 @@ export const ConverterCard = () => {
 
   let buy, pay;
   if (amountEnteredInPay) {
-    pay = amount;
-    buy = (amount * exchangeRate);
+    pay = Number.isInteger(amount) ? amount : +amount.toFixed(2);
+    buy = Number.isInteger(amount * exchangeRate)
+      ? amount * exchangeRate
+      : +(amount * exchangeRate).toFixed(6);
   } else {
-    buy = amount;
-    pay = amount / exchangeRate;
+    buy = Number.isInteger(amount) ? amount : +amount.toFixed(6);
+    pay = Number.isInteger(amount / exchangeRate)
+      ? amount / exchangeRate
+      : +(amount / exchangeRate).toFixed(2);
   }
 
   async function fetchCurrenciesData() {
@@ -74,8 +78,8 @@ export const ConverterCard = () => {
     navigate('/buy');
   }
 
-  function decidePaymentLogo(paymentMethod){
-    switch(paymentMethod){
+  function decidePaymentLogo(paymentMethod) {
+    switch (paymentMethod) {
       case paymentOptions[0]:
         return bankTransferLogo;
       case paymentOptions[1]:
@@ -86,51 +90,58 @@ export const ConverterCard = () => {
   }
 
   return (
-    <Card id="converter-card">
-      <form onSubmit={handleSubmit} id="converter-card__form">
-        <div id="input-fields">
-          <InputRow
-            selectedCurrency={payCurrency}
-            currencyOptions={fiatOptions}
-            amount={pay}
-            onCurrencyChange={(e) => setPayCurrency(e.target.value)}
-            onAmountChange={handlePayAmountChange}
-            label={'Pay'}
-          />
-          <InputRow
-            selectedCurrency={buyCurrency}
-            currencyOptions={crypoOptions}
-            amount={buy}
-            onCurrencyChange={(e) => setBuyCurrency(e.target.value)}
-            onAmountChange={handleBuyAmountChange}
-            label="Buy"
-          />
-          <label id="payment-label">Payment Method</label>
-          <Select
-            variant="standard"
-            disableUnderline={true} 
-            id="payment-select"
-            value={paymentMethod}
-            onChange={(e) => setPaymentMethod(e.target.value)}
-            IconComponent={() => (
-              <img className="payment-method-icon" src={decidePaymentLogo(paymentMethod)} alt="icon" />
-            )}
+    <div id="cards-together">
+      <div id="decoration-card"></div>
+      <Card id="converter-card">
+        <form onSubmit={handleSubmit} id="converter-card__form">
+          <div id="input-fields">
+            <InputRow
+              selectedCurrency={payCurrency}
+              currencyOptions={fiatOptions}
+              amount={pay}
+              onCurrencyChange={(e) => setPayCurrency(e.target.value)}
+              onAmountChange={handlePayAmountChange}
+              label={'Pay'}
+            />
+            <InputRow
+              selectedCurrency={buyCurrency}
+              currencyOptions={crypoOptions}
+              amount={buy}
+              onCurrencyChange={(e) => setBuyCurrency(e.target.value)}
+              onAmountChange={handleBuyAmountChange}
+              label="Buy"
+            />
+            <label id="payment-label">Payment Method</label>
+            <Select
+              variant="standard"
+              disableUnderline={true}
+              id="payment-select"
+              value={paymentMethod}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              IconComponent={() => (
+                <img
+                  className="payment-method-icon"
+                  src={decidePaymentLogo(paymentMethod)}
+                  alt="icon"
+                />
+              )}
+            >
+              {paymentOptions.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </div>
+          <Button
+            id="buy-button"
+            type="submit"
+            disabled={!paymentMethod || buy === 0 || pay === 0}
           >
-            {paymentOptions.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </Select>
-        </div>
-        <Button
-          id="buy-button"
-          type="submit"
-          disabled={!paymentMethod || buy === 0 || pay === 0}
-        >
-        Buy {buyCurrency}
-        </Button>
-      </form>
-    </Card>
+            Buy {buyCurrency}
+          </Button>
+        </form>
+      </Card>
+    </div>
   );
 };

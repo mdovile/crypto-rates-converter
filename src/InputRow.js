@@ -26,7 +26,8 @@ export const InputRow = ({
       .then((imageBlob) => {
         const imageObjectURL = URL.createObjectURL(imageBlob);
         setImage(imageObjectURL);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         setImage(unknownLogo);
       });
   }, [selectedCurrency]);
@@ -35,9 +36,13 @@ export const InputRow = ({
     <div className="input-row">
       <label className="input-label">{label}</label>
       <Input
-        disableUnderline={true} 
+        disableUnderline={true}
         variant="standard"
-        inputProps={{ min: 0, max: 1000000, style: { textAlign: 'center', fontSize: 14 }}}
+        inputProps={{
+          min: 0,
+          max: 1000000,
+          style: { textAlign: 'center', fontSize: 14 },
+        }}
         type="number"
         min="0"
         className="inputNumber"
@@ -50,7 +55,7 @@ export const InputRow = ({
       />
       <Select
         variant="standard"
-        disableUnderline={true} 
+        disableUnderline={true}
         className="currency-select"
         value={selectedCurrency}
         onChange={onCurrencyChange}

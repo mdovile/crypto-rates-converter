@@ -1,5 +1,6 @@
 import React from 'react';
 import { ConverterCard } from './ConverterCard';
+import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
   return (
@@ -19,6 +20,9 @@ export const HomePage = () => {
         any other popular crypto directly to your personal wallet without making
         any initial deposits. It's as easy as it gets!
       </p>
+      </div>
+      <div id="box-for-link">
+      <Link to="/login">Start now {'>'}</Link>
       </div>
       <ConverterCard />
     </div>

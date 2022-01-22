@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Select, MenuItem, TextField } from '@mui/material';
+import { Select, MenuItem, Input } from '@mui/material';
 import unknownLogo from './icons/icons-unknown.png';
 
 export const InputRow = ({
@@ -34,7 +34,8 @@ export const InputRow = ({
   return (
     <div className="input-row">
       <label className="input-label">{label}</label>
-      <TextField
+      <Input
+        disableUnderline={true} 
         variant="standard"
         inputProps={{ min: 0, max: 1000000, style: { textAlign: 'center', fontSize: 14 }}}
         type="number"
@@ -48,6 +49,8 @@ export const InputRow = ({
         }}
       />
       <Select
+        variant="standard"
+        disableUnderline={true} 
         className="currency-select"
         value={selectedCurrency}
         onChange={onCurrencyChange}

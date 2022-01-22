@@ -4,6 +4,7 @@ body {
 
 #header {
   position: fixed;
+  width: 100%;
   background: white;
   display: flex;
   height: 4.5vw;
@@ -15,7 +16,7 @@ body {
   padding-right: 50px;
   font-size: 15px;
   color: #7f88a0;
-  z-index: 99;
+  z-index: 999;
 }
 
 #background{
@@ -32,12 +33,12 @@ body {
 }
 
 #converter-card{
-  position: fixed;
+  position: relative;
   width: 320px;
   height: 378px;
   border-radius: 20px;
   z-index: 1;
-  bottom: 14vw;         
+  bottom: 5vw;         
   left: 64vw;
 }
 
@@ -75,6 +76,18 @@ p {
   max-width: 30%;
 }
 
+#box-for-link{
+  position: absolute;
+  left: 20.5vw;
+  top: 520px;
+}
+
+a{
+  text-decoration: none;
+  color: #16DFB5;
+  font-size: 14px;
+}
+
 h1 {
   color: #fff;
   font-family: Roboto;
@@ -101,17 +114,14 @@ h1 b {
   border: 0;
   outline: 0;
   transition: box-shadow .2s ease;
-  padding: 0 15px;
-  color: transparent;
   font-size: 1em;
   font-weight: 500;
   background: #16DFB5;
-  padding-left: 3.3rem;
   border-radius: 4px 50px 50px 50px;
-  margin-bottom: 1rem;
-  cursor: pointer;
   color: white;
   padding: 0px; 
+  line-height: 8px;
+  text-transform: none;
 }
 
 #buy-button:disabled{
@@ -163,24 +173,31 @@ h1 b {
 
 .currency-icon{
   position: absolute;
-  left: -5px;
   width: 22px;
 }
 
 .payment-method-icon{
   position: absolute;
   left: 10px;
-  width: 30px;
+  width: 40px;
+  height: 25px;
   background: #FFFFFF;
   border: 1px solid #D9D9D9;
   box-sizing: border-box;
   border-radius: 6px;
 }
 
+.logo-icon{
+  position: relative;
+  width: 125px;
+  height: 26px;
+  left: -22px;
+}
+
 .currency-select{
   display: inline;
-  left: 8px;
-  height: 30px;
-  width: 90px;
+  left: 10px;
+  height: 33px;
+  width: 100px;
   text-align: right;
 }

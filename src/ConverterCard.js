@@ -10,8 +10,8 @@ const BASE_URL = 'https://api.coingate.com/v2';
 const paymentOptions = ['Bank transfer', 'Credit or Debit Card', 'Apple Pay'];
 
 export const ConverterCard = () => {
-  const [crypoOptions, setCryptoOptions] = useState([]);
-  const [fiatOptions, setFiatOptions] = useState(['BTS', 'ETH']);
+  const [crypoOptions, setCryptoOptions] = useState(['BTC']);
+  const [fiatOptions, setFiatOptions] = useState(['EUR']);
   const [payCurrency, setPayCurrency] = useState('EUR');
   const [buyCurrency, setBuyCurrency] = useState('BTC');
   const [exchangeRate, setExchangeRate] = useState(0);
@@ -107,6 +107,8 @@ export const ConverterCard = () => {
           />
           <label id="payment-label">Payment Method</label>
           <Select
+            variant="standard"
+            disableUnderline={true} 
             id="payment-select"
             value={paymentMethod}
             onChange={(e) => setPaymentMethod(e.target.value)}

@@ -43,7 +43,6 @@ export const InputRow = ({
           max: 1000000,
           style: { textAlign: 'center', fontSize: 14 },
         }}
-        type="number"
         min="0"
         className="inputNumber"
         value={amount}
